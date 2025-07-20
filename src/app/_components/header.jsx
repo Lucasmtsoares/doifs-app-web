@@ -1,4 +1,5 @@
 const options = [
+    { label: 'Home', id: '/' },
     { label: 'Serviços', id: 'services' },
     { label: 'Contato', id: 'contact' },
     { label: 'Sobre', id: 'about' },
@@ -9,13 +10,13 @@ export function Header() {
         <header className="flex justify-center">
             <div className="flex justify-between items-center w-6xl pt-5">
                 <img src="file.svg" alt="Logo Conect Cursos" className="w-[50px] h-[60px]" />
-                <navbar>
+                <nav>
                     <ul className="flex items-center gap-6 text-black">
                         {
                             options.map((options, index) => (
                                 <li key={index}>
                                     <a
-                                        href={`#${options.id}`}
+                                        href={options.id}
                                         className="relative inline-block pb-1 
                                         before:content-[''] 
                                         before:absolute 
@@ -42,7 +43,7 @@ export function Header() {
                             </a>
                         </li>
                     </ul>
-                </navbar>
+                </nav>
             </div>
         </header>
     )
