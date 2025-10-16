@@ -1,17 +1,19 @@
 'use client'
 
-import { useState } from 'react';
-import { FiSearch, FiPlus } from 'react-icons/fi';
+import { useState } from "react";
+import { FiSearch, FiPlus } from "react-icons/fi";
+import { useRouter } from "next/navigation";
 
 export function Form({ alwaysShowFilters = false }) {
     const [formData, setFormData] = useState({
-        searchTerm: '',
-        ato: '',
-        instituto: '',
-        ano: '',
+        name: '',
+        institute: '',
+        type: '',
+        year: '',
     });
 
     const [showFilters, setShowFilters] = useState(alwaysShowFilters);
+    const router = useRouter();
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -21,7 +23,7 @@ export function Form({ alwaysShowFilters = false }) {
     const handleSubmit = (e) => {
         e.preventDefault();
         const query = new URLSearchParams(formData).toString();
-        window.location.href = `/search?${query}`;
+        router.push(`/search?${query}`);
     };
 
     return (
@@ -30,9 +32,9 @@ export function Form({ alwaysShowFilters = false }) {
                 <div className="relative flex-1">
                     <input
                         type="text"
-                        name="searchTerm"
+                        name="name"
                         placeholder="Digite aqui..."
-                        value={formData.searchTerm}
+                        value={formData.name}
                         onChange={handleChange}
                         className="w-full  border border-gray-300 rounded-2xl px-4 py-2 pr-10 focus:outline-none focus:ring-1 focus:ring-blue-400 focus:border-blue-400 transition text-black bg-white"
                     />
@@ -63,19 +65,19 @@ export function Form({ alwaysShowFilters = false }) {
             >
                 <div className="flex flex-col md:flex-row gap-4 mt-2">
                     <select
-                        name="ato"
-                        value={formData.ato}
+                        name="type"
+                        value={formData.type}
                         onChange={handleChange}
                         className="border rounded px-3 py-2 w-full"
                     >
                         <option value="" disabled hidden>Ato de pessoal</option>
-                        <option value="nomeacao" className="text-blue-900">Nomeação</option>
-                        <option value="exoneracao" className="text-blue-900">Exoneração</option>
+                        <option value="Nomeação" className="text-blue-900">Nomeação</option>
+                        <option value="Exoneração" className="text-blue-900">Exoneração</option>
                     </select>
 
                     <select
-                        name="instituto"
-                        value={formData.instituto}
+                        name="institute"
+                        value={formData.institute}
                         onChange={handleChange}
                         className="border rounded px-3 py-2 w-full"
                     >
@@ -92,14 +94,14 @@ export function Form({ alwaysShowFilters = false }) {
                     </select>
 
                     <select
-                        name="ano"
-                        value={formData.ano}
+                        name="year"
+                        value={formData.year}
                         onChange={handleChange}
                         className="border rounded px-3 py-2 w-full"
                     >
                         <option value="" disabled hidden>Ano</option>
                         {['2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025'].map((year) => (
-                            <option key={year} value={`ano-${year}`} className="text-blue-900">{year}</option>
+                            <option key={year} value={year} className="text-blue-900">{year}</option>
                         ))}
                     </select>
                 </div>

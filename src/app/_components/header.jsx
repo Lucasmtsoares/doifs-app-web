@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 const options = [
     { label: 'Home', id: '/' },
     { label: 'Serviços', id: 'services' },
@@ -9,15 +11,15 @@ export function Header() {
     return (
         <header className="flex justify-center">
             <div className="flex justify-between items-center w-6xl pt-5">
-                <img src="file.svg" alt="Logo Conect Cursos" className="w-[50px] h-[60px]" />
+                <img src="logo2-doifs.svg" alt="Logo Conect Cursos" className="w-[200px] h-[100px]" />
                 <nav>
-                    <ul className="flex items-center gap-6 text-black">
+                    <ul className="flex  items-center gap-6 text-black">
                         {
                             options.map((options, index) => (
                                 <li key={index}>
                                     <a
                                         href={options.id}
-                                        className="relative inline-block pb-1 
+                                        className="relative inline-block 
                                         before:content-[''] 
                                         before:absolute 
                                         before:bottom-0 
@@ -34,13 +36,15 @@ export function Header() {
                                 </li>
 
                             ))
+
+                            
                         }
                         <li>
-                            <a
-                                href="#contact-us"
-                                className="text-white px-6 py-3 rounded-2xl bg-blue-800 inline-block">
+                            <Link
+                                href="/dashboard"
+                                className="text-white px-6 py-2 rounded-2xl bg-blue-800 inline-block">
                                 Dashboard
-                            </a>
+                            </Link>
                         </li>
                     </ul>
                 </nav>
@@ -48,3 +52,5 @@ export function Header() {
         </header>
     )
 }
+
+//pb-1 
