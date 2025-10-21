@@ -5,7 +5,11 @@ import { HeaderDashboard } from "../_components/headerDashboard";
 import { SideBar } from "../_components/sideBar";
 import { FaArrowTrendUp } from "react-icons/fa6";
 import { FaArrowTrendDown } from "react-icons/fa6";
-import { ChartDashboardArea } from "../_components/cardDashboardBar";
+import { ChartArea } from "../_components/chartArea";
+import { ChartPieLabelList } from "../_components/chartPie";
+import { ChartBar } from "lucide-react";
+import { ChartBarInteractive } from "../_components/chartBar";
+import { ChartBarLabelCustom } from "../_components/chartBarHorizontal";
 
 const options = [
     {
@@ -24,13 +28,13 @@ const options = [
 
 export default function Dashboard() {
     return (
-        <div className="h-[700px] bg-blue-800">
-            <HeaderDashboard />
-            <div className="flex ">
-                <SideBar />
+        <section className="h-[700px]">
+            <HeaderDashboard/>
+            <div className="mx-40 mt-20">
+               
 
-                <div className="w-full bg-black">
-                    <ul className="flex justify-around gap-4 bg-cyan-500">
+                <div className="w-full">
+                    <ul className="flex justify-around gap-4 pt-6">
                         {
                             options.map((options, index) => (
                                 <li key={index}>
@@ -39,11 +43,24 @@ export default function Dashboard() {
                             ))
                         }
                     </ul>
+                </div>
 
-                    <ChartDashboardArea/>
-                    
+                <div className="pt-8">
+                    <ChartArea/>
+                </div>
+
+                <div className="pt-8">
+                    <ChartBarInteractive/>
+                </div>
+
+                <div className="pt-8">
+                    <ChartBarLabelCustom/>
+                </div>
+
+                <div className="pt-8 hidden">
+                    <ChartPieLabelList/>
                 </div>
             </div>
-        </div>
+        </section>
     )
 }

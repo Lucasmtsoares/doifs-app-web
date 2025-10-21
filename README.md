@@ -34,3 +34,10 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+1. Quantidade de nomeações do último mês                     - FEITO     (Card)
+2. Quantidade de exonerações do último mês                   - FEITO     (Card)
+3. Quantidade de nomeações e exonerações dos últimos 3 meses - FEITO     (Area)
+4. Distribuição de Nomeações e Exonerações por Instituto:    - PENDENTE  (Bar group)
+5. Total de atos de cada instituto por ano                   - PEDENTE   (Bar horizontal)
+6. Top 10 diretores que mais promulgam atos                  - PEDENTE   (Pie chart)
